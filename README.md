@@ -1,6 +1,6 @@
 # anilibria_clone
 
-A new Flutter project.
+Clone of existing anilibria app
 
 ## Getting Started
 
