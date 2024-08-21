@@ -1,5 +1,8 @@
-import 'package:anilibria_clone/theme/colors.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:anilibria_clone/theme/colors.dart';
 
 class StandardButton extends StatelessWidget {
   final void Function()? onPressed;
@@ -26,7 +29,6 @@ class StandardButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: AnilibriaColor.white,
             borderRadius: BorderRadius.circular(4),
-
           ),
           child: Center(
             child: Text(

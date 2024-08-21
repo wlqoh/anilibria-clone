@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:anilibria_clone/models/article/article.dart';
 import 'package:anilibria_clone/repositories/list_repository.dart';
 
@@ -14,7 +15,7 @@ class FeedListRepository extends ListRepository<Article> {
 
   Future<Article> item({
     required int id,
-}) async {
+  }) async {
     final response = await backendApi.get("$_urlFroItem?id=$id");
     try {
       return Article.fromJson(response.data);

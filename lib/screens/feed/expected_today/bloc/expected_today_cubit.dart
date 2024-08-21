@@ -1,6 +1,9 @@
+// Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:anilibria_clone/models/article/article.dart';
 import 'package:anilibria_clone/repositories/schedule_today.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'expected_today_state.dart';
 

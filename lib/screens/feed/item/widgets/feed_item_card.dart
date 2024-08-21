@@ -1,9 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:anilibria_clone/models/article/article.dart';
 import 'package:anilibria_clone/screens/feed/item/widgets/favorite_field.dart';
 import 'package:anilibria_clone/screens/feed/item/widgets/weekday.dart';
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/theme/text_styles.dart';
-import 'package:flutter/material.dart';
 
 class FeedItemCard extends StatelessWidget {
   final Article article;
@@ -126,8 +129,8 @@ class FeedItemCard extends StatelessWidget {
               Text(
                 article.description ?? 'Описания нет',
                 style: AnilibriaTextStyle.body(AnilibriaColor.black),
-              )
-            ,],
+              ),
+            ],
           ),
         ),
       ),

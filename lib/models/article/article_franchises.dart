@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:anilibria_clone/models/article/article_names.dart';
 
 class ArticleFranchises {

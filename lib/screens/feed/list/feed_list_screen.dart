@@ -1,3 +1,11 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:anilibria_clone/bloc/list_cubit.dart';
 import 'package:anilibria_clone/components/buttons/standard_button.dart';
 import 'package:anilibria_clone/models/article/article.dart';
@@ -7,9 +15,6 @@ import 'package:anilibria_clone/screens/feed/list/bloc/feed_cubit.dart';
 import 'package:anilibria_clone/screens/feed/list/widgets/article.dart';
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/theme/text_styles.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage(name: 'FeedListRouter')
 class FeedListScreen extends StatelessWidget {

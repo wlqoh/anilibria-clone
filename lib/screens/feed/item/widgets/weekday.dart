@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/theme/text_styles.dart';
-import 'package:flutter/material.dart';
 
 class WeekDay extends StatelessWidget {
   const WeekDay({super.key});

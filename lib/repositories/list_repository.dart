@@ -1,9 +1,13 @@
+// Dart imports:
 import 'dart:convert';
 import 'dart:developer';
 
+// Package imports:
+import 'package:dio/dio.dart';
+
+// Project imports:
 import 'package:anilibria_clone/constants.dart';
 import 'package:anilibria_clone/models/paginated_response.dart';
-import 'package:dio/dio.dart';
 
 abstract class ListRepository<T> {
   Dio backendApi;
@@ -15,8 +19,8 @@ abstract class ListRepository<T> {
   String urlList();
 
   Future<PaginatedResponse<T>> list(
-      int? nextPage,
-      ) async {
+    int? nextPage,
+  ) async {
     final response = await backendApi.get('${urlList()}?page=$nextPage');
     final List<T> items = [];
 

@@ -1,9 +1,13 @@
+// Dart imports:
 import 'dart:convert';
 import 'dart:developer';
 
+// Package imports:
+import 'package:dio/dio.dart';
+
+// Project imports:
 import 'package:anilibria_clone/constants.dart';
 import 'package:anilibria_clone/models/article/article.dart';
-import 'package:dio/dio.dart';
 
 class ScheduleListRepository {
   final _url = "/title/schedule";
@@ -23,11 +27,12 @@ class ScheduleListRepository {
 
     return items;
   }
+
   void printJsonDecodeError(
-      dynamic error,
-      dynamic stackTrace,
-      dynamic jsonItem,
-      ) {
+    dynamic error,
+    dynamic stackTrace,
+    dynamic jsonItem,
+  ) {
     log(logsDivider);
     log(error.toString());
     final lines = stackTrace.toString().split("\n");

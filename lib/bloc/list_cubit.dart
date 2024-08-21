@@ -1,6 +1,11 @@
-import 'package:anilibria_clone/repositories/list_repository.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
+import 'package:anilibria_clone/repositories/list_repository.dart';
 
 part 'list_state.dart';
 

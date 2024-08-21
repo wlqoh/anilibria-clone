@@ -1,8 +1,13 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:anilibria_clone/routes/router.gr.dart';
 import 'package:anilibria_clone/screens/feed/expected_today/bloc/expected_today_cubit.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage(name: 'ExpectedTodayListRouter')
 class ExpectedTodayListScreen extends StatelessWidget {

@@ -1,13 +1,18 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:anilibria_clone/repositories/dio.dart';
+import 'package:anilibria_clone/repositories/feed.dart';
 import 'package:anilibria_clone/repositories/schedule.dart';
 import 'package:anilibria_clone/repositories/schedule_today.dart';
-import 'package:anilibria_clone/repositories/feed.dart';
 import 'package:anilibria_clone/routes/router.dart';
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/utils/utils.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   final dio = await getDio();

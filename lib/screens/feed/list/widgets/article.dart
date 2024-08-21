@@ -1,9 +1,14 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+
+// Project imports:
 import 'package:anilibria_clone/models/article/article.dart';
 import 'package:anilibria_clone/routes/router.gr.dart';
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/theme/text_styles.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 
 class ArticleWidget extends StatelessWidget {
   final Article article;
@@ -52,8 +57,7 @@ class ArticleWidget extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text:
-                                    ' (${article.player
-                                        .episodes?.string ?? "sdf"}'
+                                    ' (${article.player.episodes?.string ?? ""}'
                                     ')',
                               ),
                             ],

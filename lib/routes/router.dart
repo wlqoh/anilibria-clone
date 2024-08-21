@@ -1,5 +1,8 @@
-import 'package:anilibria_clone/routes/router.gr.dart';
+// Package imports:
 import 'package:auto_route/auto_route.dart';
+
+// Project imports:
+import 'package:anilibria_clone/routes/router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AppRouter extends $AppRouter {

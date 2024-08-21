@@ -1,19 +1,25 @@
+// Dart imports:
 import 'dart:developer';
 
+// Package imports:
 import 'package:dio/dio.dart';
 
 Future<Dio> getDio([Map<String, dynamic>? headers]) async {
-  final dio = Dio(BaseOptions(baseUrl: 'https://api.anilibria.tv/v3/', headers: headers));
-  dio.interceptors.add(InterceptorsWrapper(
-    onResponse: (response, handler) {
-      logResponse(response: response);
-      return handler.next(response);
-    },
-    onError: (error, handler) {
-      logResponse(error: error);
-      return handler.next(error);
-    }
-  ,),);
+  final dio = Dio(
+    BaseOptions(baseUrl: 'https://api.anilibria.tv/v3/', headers: headers),
+  );
+  dio.interceptors.add(
+    InterceptorsWrapper(
+      onResponse: (response, handler) {
+        logResponse(response: response);
+        return handler.next(response);
+      },
+      onError: (error, handler) {
+        logResponse(error: error);
+        return handler.next(error);
+      },
+    ),
+  );
 
   return dio;
 }

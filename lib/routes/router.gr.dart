@@ -8,15 +8,22 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Flutter imports:
+import 'package:flutter/material.dart' as _i8;
+
+// Package imports:
+import 'package:auto_route/auto_route.dart' as _i7;
+
+// Project imports:
 import 'package:anilibria_clone/routes/empty_routers.dart' as _i4;
 import 'package:anilibria_clone/screens/feed/expected_today/list.dart' as _i1;
 import 'package:anilibria_clone/screens/feed/item/feed_item_screen.dart' as _i2;
 import 'package:anilibria_clone/screens/feed/list/feed_list_screen.dart' as _i3;
 import 'package:anilibria_clone/screens/home/home_screen.dart' as _i5;
+
 import 'package:anilibria_clone/screens/schedule/schedule_list_screen.dart'
     as _i6;
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
 
 abstract class $AppRouter extends _i7.RootStackRouter {
   $AppRouter({super.navigatorKey});

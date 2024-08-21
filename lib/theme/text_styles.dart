@@ -1,3 +1,4 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class AnilibriaTextStyle {
@@ -16,6 +17,7 @@ class AnilibriaTextStyle {
       color: color,
     );
   }
+
   static TextStyle small2(Color color) {
     return TextStyle(
       fontWeight: FontWeight.w400,
@@ -31,6 +33,7 @@ class AnilibriaTextStyle {
       color: color,
     );
   }
+
   static TextStyle body(Color color) {
     return TextStyle(
       fontWeight: FontWeight.w500,

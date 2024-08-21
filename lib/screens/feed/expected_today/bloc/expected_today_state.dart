@@ -1,7 +1,5 @@
 part of 'expected_today_cubit.dart';
 
-
-
 enum Status {
   initial,
   loading,
@@ -16,8 +14,7 @@ class ExpectedTodayState {
   const ExpectedTodayState({
     required Status status,
     required List<Article> items,
-  })
-      : _status = status,
+  })  : _status = status,
         _items = items;
 
   ExpectedTodayState copyWith({
