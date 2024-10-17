@@ -1,8 +1,8 @@
 class Youtube {
-  final int? id;
-  final String? title;
-  final Preview? preview;
-  final String? youtubeId;
+  final int id;
+  final String title;
+  final Preview preview;
+  final String youtubeId;
   final int? comments;
   final int? views;
   final int? timestamp;
@@ -31,8 +31,8 @@ class Youtube {
 }
 
 class Preview {
-  final String? src;
-  final String? thumbnail;
+  final String src;
+  final String thumbnail;
 
   Preview({required this.src, required this.thumbnail});
 

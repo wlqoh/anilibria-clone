@@ -17,10 +17,10 @@ class FavoriteField extends StatelessWidget {
       padding: const EdgeInsets.all(0.5),
       width: 55,
       decoration: BoxDecoration(
-        color: AnilibriaColor.white,
+        color: AnilibColor.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AnilibriaColor.black,
+          color: AnilibColor.black,
           width: 0.5,
         ),
       ),
@@ -30,13 +30,13 @@ class FavoriteField extends StatelessWidget {
         children: [
           Text(
             article.inFavourites.toString(),
-            style: AnilibriaTextStyle.small2(AnilibriaColor.black),
+            style: AnilibTextStyle.small2(AnilibColor.black),
           ),
           const SizedBox(width: 3),
           const Icon(
             Icons.star_border,
             size: 15,
-            color: AnilibriaColor.black,
+            color: AnilibColor.black,
           ),
         ],
       ),

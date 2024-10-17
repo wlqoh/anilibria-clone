@@ -2,7 +2,7 @@ class ArticlePlayer {
   final dynamic alternativePlayer;
   final String? host;
   final bool? isRutube;
-  final Episodes? episodes;
+  final Episodes episodes;
   final PlayerList list;
   final Rutube rutube;
 
@@ -28,8 +28,8 @@ class ArticlePlayer {
 }
 
 class Episodes {
-  final dynamic first;
-  final dynamic last;
+  final int? first;
+  final int? last;
   final String? string;
 
   Episodes({
@@ -65,7 +65,7 @@ class PlayerList {
 class Episode {
   final dynamic episode;
   final String? name;
-  final String? uuid;
+  final String uuid;
   final int? createdTimestamp;
   final String? preview;
   final Skips skips;
@@ -97,7 +97,7 @@ class Episode {
 class Hls {
   final String? fhd;
   final String? hd;
-  final String? sd;
+  final String sd;
 
   Hls({
     required this.fhd,

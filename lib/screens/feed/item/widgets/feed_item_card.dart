@@ -1,4 +1,8 @@
 // Flutter imports:
+import 'package:anilibria_clone/constants.dart';
+import 'package:anilibria_clone/routes/router.gr.dart';
+import 'package:anilibria_clone/widgets/video_player/video_player.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -19,21 +23,43 @@ class FeedItemCard extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 35,
         scrolledUnderElevation: 1.5,
-        shadowColor: AnilibriaColor.black,
-        backgroundColor: AnilibriaColor.white,
-        surfaceTintColor: AnilibriaColor.white,
+        shadowColor: AnilibColor.black,
+        backgroundColor: AnilibColor.white,
+        surfaceTintColor: AnilibColor.white,
         title: const Text('Описание'),
-        titleTextStyle: AnilibriaTextStyle.title2(AnilibriaColor.black),
+        titleTextStyle: AnilibTextStyle.title2(AnilibColor.black),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.network(
+                    alignment: Alignment.topCenter,
+                    imageUrl + article.posters.original.url,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 400,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      context.router.push(VideoAppRouter(article: article));
+                    },
+                    icon: const Icon(
+                      Icons.play_circle,
+                      color: AnilibColor.red,
+                      size: 30,
+                    ),
+                    color: AnilibColor.white,
+                  ),
+                ],
+              ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -41,7 +67,7 @@ class FeedItemCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       article.names.ru ?? "Нет названия",
-                      style: AnilibriaTextStyle.title3(AnilibriaColor.black),
+                      style: AnilibTextStyle.title3(AnilibColor.black),
                     ),
                   ),
                   FavoriteField(article: article),
@@ -49,7 +75,7 @@ class FeedItemCard extends StatelessWidget {
               ),
               Text(
                 article.names.en ?? "Нет названия",
-                style: AnilibriaTextStyle.small1(AnilibriaColor.grey),
+                style: AnilibTextStyle.small1(AnilibColor.grey),
               ),
               const SizedBox(height: 10),
               RichText(
@@ -57,11 +83,11 @@ class FeedItemCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Год: ',
-                      style: AnilibriaTextStyle.small1(AnilibriaColor.black),
+                      style: AnilibTextStyle.small1(AnilibColor.black),
                     ),
                     TextSpan(
                       text: article.season.year.toString(),
-                      style: AnilibriaTextStyle.small2(AnilibriaColor.black),
+                      style: AnilibTextStyle.small2(AnilibColor.black),
                     ),
                   ],
                 ),
@@ -70,11 +96,11 @@ class FeedItemCard extends StatelessWidget {
                 children: [
                   Text(
                     'Голоса: ',
-                    style: AnilibriaTextStyle.small1(AnilibriaColor.black),
+                    style: AnilibTextStyle.small1(AnilibColor.black),
                   ),
                   Text(
                     article.team.voice.join(', '),
-                    style: AnilibriaTextStyle.small2(AnilibriaColor.black),
+                    style: AnilibTextStyle.small2(AnilibColor.black),
                   ),
                 ],
               ),
@@ -83,11 +109,11 @@ class FeedItemCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Тип: ',
-                      style: AnilibriaTextStyle.small1(AnilibriaColor.black),
+                      style: AnilibTextStyle.small1(AnilibColor.black),
                     ),
                     TextSpan(
                       text: article.type.fullString,
-                      style: AnilibriaTextStyle.small2(AnilibriaColor.black),
+                      style: AnilibTextStyle.small2(AnilibColor.black),
                     ),
                   ],
                 ),
@@ -97,11 +123,11 @@ class FeedItemCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Состояние релиза: ',
-                      style: AnilibriaTextStyle.small1(AnilibriaColor.black),
+                      style: AnilibTextStyle.small1(AnilibColor.black),
                     ),
                     TextSpan(
                       text: article.status.string,
-                      style: AnilibriaTextStyle.small2(AnilibriaColor.black),
+                      style: AnilibTextStyle.small2(AnilibColor.black),
                     ),
                   ],
                 ),
@@ -111,11 +137,11 @@ class FeedItemCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Жанр: ',
-                      style: AnilibriaTextStyle.small1(AnilibriaColor.black),
+                      style: AnilibTextStyle.small1(AnilibColor.black),
                     ),
                     TextSpan(
                       text: article.genres.join(', '),
-                      style: AnilibriaTextStyle.small2(AnilibriaColor.red),
+                      style: AnilibTextStyle.small2(AnilibColor.red),
                     ),
                   ],
                 ),
@@ -128,8 +154,9 @@ class FeedItemCard extends StatelessWidget {
               const Divider(),
               Text(
                 article.description ?? 'Описания нет',
-                style: AnilibriaTextStyle.body(AnilibriaColor.black),
+                style: AnilibTextStyle.body(AnilibColor.black),
               ),
+              VideoApp(article: article),
             ],
           ),
         ),

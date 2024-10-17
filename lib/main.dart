@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:anilibria_clone/repositories/search.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -10,6 +11,8 @@ import 'package:anilibria_clone/repositories/dio.dart';
 import 'package:anilibria_clone/repositories/feed.dart';
 import 'package:anilibria_clone/repositories/schedule.dart';
 import 'package:anilibria_clone/repositories/schedule_today.dart';
+import 'package:anilibria_clone/repositories/search_repository.dart';
+import 'package:anilibria_clone/repositories/youtube.dart';
 import 'package:anilibria_clone/routes/router.dart';
 import 'package:anilibria_clone/theme/colors.dart';
 import 'package:anilibria_clone/utils/utils.dart';
@@ -31,8 +34,11 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(create: (context) => FeedListRepository(dio)),
+        RepositoryProvider(create: (context) => SearchListRepository(dio)),
+        RepositoryProvider(create: (context) => YouTubeListRepository(dio)),
         RepositoryProvider(create: (context) => ScheduleTodayListRepository()),
         RepositoryProvider(create: (context) => ScheduleListRepository()),
+        RepositoryProvider(create: (context) => SearchRepository()),
       ],
       child: MaterialApp.router(
         routerConfig: _appRouter.config(),
@@ -40,7 +46,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           progressIndicatorTheme:
-              const ProgressIndicatorThemeData(color: AnilibriaColor.black),
+              const ProgressIndicatorThemeData(color: AnilibColor.black),
           pageTransitionsTheme: PageTransitionsTheme(
             builders: {
               for (final platform in TargetPlatform.values)
@@ -49,8 +55,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Anilibria',
-        supportedLocales: const [Locale.fromSubtags(languageCode: 'en')],
-        locale: const Locale.fromSubtags(languageCode: 'en'),
       ),
     );
   }

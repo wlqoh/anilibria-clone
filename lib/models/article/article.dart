@@ -41,7 +41,7 @@ class Article {
 
   final ArticleSeason season;
   final String? description;
-  final int inFavourites;
+  final int? inFavourites;
 
   final ArticleBlocked blocked;
   final ArticlePlayer player;

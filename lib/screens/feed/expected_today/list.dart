@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:anilibria_clone/components/cards/network_loading_image.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -6,6 +7,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
+import 'package:anilibria_clone/constants.dart';
 import 'package:anilibria_clone/routes/router.gr.dart';
 import 'package:anilibria_clone/screens/feed/expected_today/bloc/expected_today_cubit.dart';
 
@@ -26,7 +28,7 @@ class ExpectedTodayListScreen extends StatelessWidget {
           );
         }
         return ListView.separated(
-          controller: ScrollController(),
+          controller: state.controller,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -36,17 +38,17 @@ class ExpectedTodayListScreen extends StatelessWidget {
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
-                child: Image.network(
+                child: NetworkLoadingImage(
                   fit: BoxFit.cover,
-                  'https://a.anilibria.sbs${state.items[index].posters.original.url}',
-                  width: 70,
-                  height: 100,
+                  imageUrl + state.items[index].posters.original.url,
+                  width: 110,
+                  height: 150,
                 ),
               ),
             );
           },
           separatorBuilder: (context, index) {
-            return const SizedBox(width: 5);
+            return const SizedBox(width: 15);
           },
           itemCount: state.items.length,
         );

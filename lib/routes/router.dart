@@ -9,19 +9,56 @@ class AppRouter extends $AppRouter {
   @override
   RouteType get defaultRouteType => const RouteType.material();
   @override
-  List<AutoRoute> routes = [
-    AutoRoute(
+  List<CustomRoute> routes = [
+    CustomRoute(
       path: '/',
       page: HomeRouter.page,
+      initial: true,
       children: [
         AutoRoute(
           path: 'feed',
           page: FeedRouter.page,
           children: [
             AutoRoute(path: '', page: FeedListRouter.page),
-            AutoRoute(path: ':id', page: FeedItemRouter.page),
-            AutoRoute(path: 'schedule', page: ScheduleListRouter.page),
+            CustomRoute(
+              path: ':id',
+              page: FeedItemRouter.page,
+              transitionsBuilder: TransitionsBuilders.slideLeft,
+              durationInMilliseconds: 200,
+              children: [
+                CustomRoute(
+                  path: 'video',
+                  page: VideoAppRouter.page,
+                  transitionsBuilder: TransitionsBuilders.slideBottom,
+                  durationInMilliseconds: 300,
+                ),
+              ],
+            ),
+            CustomRoute(
+              path: 'schedule',
+              page: ScheduleListRouter.page,
+              transitionsBuilder: TransitionsBuilders.slideLeft,
+              durationInMilliseconds: 200,
+            ),
           ],
+        ),
+        AutoRoute(
+          path: 'search',
+          page: SearchRouter.page,
+          children: [
+            AutoRoute(path: '', page: SearchListRouter.page),
+            CustomRoute(
+              path: ':id',
+              page: FeedItemRouter.page,
+              transitionsBuilder: TransitionsBuilders.slideLeft,
+              durationInMilliseconds: 200,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: 'youtube',
+          page: YouTubeRouter.page,
+          children: [AutoRoute(path: '', page: YouTubeListRouter.page)],
         ),
       ],
     ),

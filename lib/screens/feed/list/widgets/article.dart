@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 // Project imports:
+import 'package:anilibria_clone/components/cards/network_loading_image.dart';
+import 'package:anilibria_clone/constants.dart';
 import 'package:anilibria_clone/models/article/article.dart';
 import 'package:anilibria_clone/routes/router.gr.dart';
 import 'package:anilibria_clone/theme/colors.dart';
@@ -26,7 +28,7 @@ class ArticleWidget extends StatelessWidget {
         elevation: 2,
         child: Container(
           decoration: BoxDecoration(
-            color: AnilibriaColor.white,
+            color: AnilibColor.white,
             borderRadius: BorderRadius.circular(6),
           ),
           height: 110,
@@ -35,12 +37,11 @@ class ArticleWidget extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(
+                NetworkLoadingImage(
                   width: 70,
                   height: 110,
-                  filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
-                  'https://a.anilibria.sbs${article.posters.original.url}',
+                  imageUrl + article.posters.original.url,
                 ),
                 Expanded(
                   child: Padding(
@@ -52,12 +53,11 @@ class ArticleWidget extends StatelessWidget {
                         RichText(
                           text: TextSpan(
                             text: article.names.ru,
-                            style:
-                                AnilibriaTextStyle.bold(AnilibriaColor.black),
+                            style: AnilibTextStyle.bold(AnilibColor.black),
                             children: [
                               TextSpan(
                                 text:
-                                    ' (${article.player.episodes?.string ?? ""}'
+                                    ' (${article.player.episodes.string ?? ""}'
                                     ')',
                               ),
                             ],
@@ -70,8 +70,7 @@ class ArticleWidget extends StatelessWidget {
                             article.description ?? 'нет описания',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 5,
-                            style:
-                                AnilibriaTextStyle.title3(AnilibriaColor.grey),
+                            style: AnilibTextStyle.title3(AnilibColor.grey),
                           ),
                         ),
                       ],

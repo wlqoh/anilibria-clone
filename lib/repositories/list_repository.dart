@@ -30,6 +30,7 @@ abstract class ListRepository<T> {
         items.add(item);
       } catch (error, stackTrace) {
         printJsonDecodeError(error, stackTrace, jsonItem);
+        rethrow;
       }
     }
     return PaginatedResponse(items: items, page: 1, count: items.length);

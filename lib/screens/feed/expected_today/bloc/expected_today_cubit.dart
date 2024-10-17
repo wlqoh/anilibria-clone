@@ -1,3 +1,7 @@
+// Flutter imports:
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,7 +13,13 @@ part 'expected_today_state.dart';
 
 class ExpectedTodayCubit extends Cubit<ExpectedTodayState> {
   ExpectedTodayCubit()
-      : super(const ExpectedTodayState(status: Status.initial, items: []));
+      : super(
+          ExpectedTodayState(
+            status: Status.initial,
+            items: [],
+            controller: ScrollController(),
+          ),
+        );
 
   Future<void> fetch() async {
     if (state.status == Status.loading) return;

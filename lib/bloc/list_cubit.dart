@@ -1,5 +1,6 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
+import 'package:anilibria_clone/components/values/text.dart';
+import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +28,9 @@ abstract class ListCubit<T> extends Cubit<ListState<T>> {
             items: const [],
             nextUrl: 1,
             isPaginating: false,
-            controller: ScrollController(),
+            scrollController: ScrollController(),
+            textController: TextValue.defaultValue(),
+            searching: false,
           ),
         );
 
@@ -35,6 +38,7 @@ abstract class ListCubit<T> extends Cubit<ListState<T>> {
     if (state.status == StandardListStatus.loading) return;
     emit(
       state.copyWith(
+        nextUrl: 1,
         status: StandardListStatus.loading,
         items: [],
       ),
@@ -50,7 +54,6 @@ abstract class ListCubit<T> extends Cubit<ListState<T>> {
 
   void onScroll(ScrollMetrics metrics) {
     if (state.status == StandardListStatus.loaded) {
-      // final itemsCount = state.items.length;
       final paginatePosition = metrics.maxScrollExtent;
       if (metrics.pixels == paginatePosition) {
         emit(state.copyWith(isPaginating: true));
@@ -61,9 +64,7 @@ abstract class ListCubit<T> extends Cubit<ListState<T>> {
 
   Future<void> paginate() async {
     emit(state.copyWith(nextUrl: state.nextUrl + 1));
-    final response = await repository.list(
-      state.nextUrl,
-    );
+    final response = await repository.list(state.nextUrl);
     emit(
       state.copyWith(
         items: state.items..addAll(response.items),

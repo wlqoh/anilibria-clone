@@ -1,7 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class AnilibriaTextStyle {
+class AnilibTextStyle {
   static TextStyle bold(Color color) {
     return TextStyle(
       fontWeight: FontWeight.bold,

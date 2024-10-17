@@ -27,7 +27,7 @@ class StandardButton extends StatelessWidget {
           height: 35,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: AnilibriaColor.white,
+            color: AnilibColor.white,
             borderRadius: BorderRadius.circular(4),
           ),
           child: Center(

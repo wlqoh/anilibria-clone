@@ -19,7 +19,7 @@ class ArticlePosters {
 }
 
 class PostersSize {
-  final String? url;
+  final String url;
   final dynamic rawBase64File;
 
   PostersSize({
